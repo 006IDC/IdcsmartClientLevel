@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: bcmath, zip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: PHP syntax
+        run: find . -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Unit and contract tests
+        run: |
+          php tests/money_test.php
+          php tests/contract_test.php
+      - name: JavaScript syntax
+        run: |
+          node --check public/client-level-admin.js
+          node --check public/client-level-client.js
+      - name: Open-source release audit
+        run: php tools/open_source_audit.php
+      - name: Build and inspect install package
+        run: |
+          php tools/build_release.php
+          php tools/build_github_source.php
+          unzip -t dist/idcsmart_client_level_v1.6.3_zjmf_v10_import.zip
+          unzip -t dist/idcsmart_client_level_v1.6.3_github_source.zip

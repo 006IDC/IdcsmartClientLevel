@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="/plugins/addon/idcsmart_client_level/public/client-level-admin.css?v=1.6.3">
+
+<div id="icl-admin" class="icl-page">
+  <header class="icl-hero">
+    <div>
+      <span class="icl-kicker">OFFICIAL LEVELS · DUAL AXIS · V10</span>
+      <h1>用户等级、双轴贡献与推广权益</h1>
+      <p>官方折扣等级保持唯一；本人消费与已锁定推广贡献分别达标、取较高等级，推广权益可提现或纳入等级贡献。</p>
+    </div>
+    <div class="icl-hero-actions">
+      <a id="icl-official-withdrawals" class="icl-btn" href="#">官方提现管理</a>
+      <button id="icl-rebuild-all" class="icl-btn icl-btn-primary" type="button">重算全部用户</button>
+    </div>
+  </header>
+
+  <div id="icl-message" class="icl-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></div>
+  <div id="icl-stats" class="icl-stats"></div>
+
+  <nav class="icl-tabs" aria-label="用户等级管理">
+    <button type="button" class="is-active" data-tab="levels">等级策略</button>
+    <button type="button" data-tab="clients">用户等级</button>
+    <button type="button" data-tab="referrals">推广绑定</button>
+    <button type="button" data-tab="products">返利商品</button>
+    <button type="button" data-tab="settings">规则设置</button>
+    <button type="button" data-tab="logs">变更记录</button>
+  </nav>
+
+  <section class="icl-panel is-active" data-panel="levels">
+    <div class="icl-section-head">
+      <div>
+        <h2>等级策略</h2>
+        <p>“减免 10%”表示用户实付 90%，即九折。</p>
+      </div>
+      <button id="icl-create-level" class="icl-btn icl-btn-primary" type="button">新增等级</button>
+    </div>
+    <div id="icl-levels" class="icl-level-grid"></div>
+  </section>
+
+  <section class="icl-panel" data-panel="clients">
+    <div class="icl-section-head">
+      <div>
+        <h2>用户等级</h2>
+        <p>本人消费与推广贡献分别对账、绝不相加；管理员固定等级可设置到期时间。</p>
+      </div>
+      <div class="icl-search">
+        <input id="icl-client-keywords" type="search" placeholder="用户ID、用户名、邮箱、手机号">
+        <button id="icl-search-clients" class="icl-btn" type="button">搜索</button>
+      </div>
+    </div>
+    <div class="icl-table-wrap">
+      <table class="icl-table">
+        <thead><tr><th>用户</th><th>当前等级</th><th>本人消费</th><th>推广贡献</th><th>升级通道</th><th>待分配/可提现</th><th>方式</th><th>操作</th></tr></thead>
+        <tbody id="icl-clients"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="icl-panel" data-panel="referrals">
+    <div class="icl-section-head"><div><h2>推广绑定</h2><p>一个客户只能有一名当前推广人；改绑不会转移已经产生的历史权益。</p></div><div class="icl-actions"><button id="icl-half-agent-preview" class="icl-btn" type="button">HalfAgent 导入预览</button><button id="icl-refresh-binds" class="icl-btn" type="button">刷新</button></div></div>
+    <form id="icl-bind-form" class="icl-inline-form">
+      <label>推广人ID<input id="icl-bind-referrer" type="number" min="1" required></label>
+      <label>客户ID<input id="icl-bind-invitee" type="number" min="1" required></label>
+      <label class="icl-check"><input id="icl-bind-history" type="checkbox">继承绑定前历史消费</label>
+      <button class="icl-btn icl-btn-primary" type="submit">保存绑定</button>
+    </form>
+    <div class="icl-table-wrap"><table class="icl-table"><thead><tr><th>推广人</th><th>客户</th><th>来源</th><th>历史继承</th><th>贡献开始</th><th>风险提示</th><th>状态</th></tr></thead><tbody id="icl-binds"></tbody></table></div>
+    <p class="icl-note">风险提示只用于人工复核：同登录 IP 来自系统记录的最近登录信息，不作为自动封禁依据；高退款比例按客户已支付订单累计退款达到 50% 标记。</p>
+  </section>
+
+  <section class="icl-panel" data-panel="products">
+    <div class="icl-section-head">
+      <div>
+        <h2>返利商品计划</h2>
+        <p>商品直接读取 V10 现有商品资料；逐项决定新支付订单是否产生推广返利。</p>
+      </div>
+      <div class="icl-search">
+        <input id="icl-product-keywords" type="search" placeholder="商品ID或商品名称">
+        <button id="icl-search-products" class="icl-btn" type="button">搜索</button>
+      </div>
+    </div>
+    <div id="icl-product-summary" class="icl-product-summary">正在读取商品列表…</div>
+    <div class="icl-table-wrap">
+      <table class="icl-table">
+        <thead><tr><th>商品</th><th>商品分组</th><th>付款类型</th><th>前台状态</th><th>加入返利计划</th></tr></thead>
+        <tbody id="icl-products"></tbody>
+      </table>
+    </div>
+    <div class="icl-product-pager">
+      <button id="icl-product-prev" class="icl-btn" type="button">上一页</button>
+      <span id="icl-product-page">第 1 页</span>
+      <button id="icl-product-next" class="icl-btn" type="button">下一页</button>
+    </div>
+    <p class="icl-note">默认加入返利计划。活动商品可直接关闭；关闭只影响保存后的新支付订单，不追溯已产生的权益。退款仍按支付时锁定的商品资格快照强制冲减。</p>
+  </section>
+
+  <section class="icl-panel" data-panel="settings">
+    <form id="icl-settings-form" class="icl-card icl-form icl-settings-card">
+      <div class="icl-config-heading"><div><span>RECOMMENDATION SETTINGS</span><h2>推介配置</h2></div><p>等级仍使用官方用户等级数据；消费与推广贡献使用独立门槛，分别达标后取较高等级。</p></div>
+      <label class="icl-switch-row">
+        <span><strong>启用自动等级升级</strong><small>总开关关闭后，不再自动授予新等级；退款回退仍执行。</small></span>
+        <input id="icl-auto-upgrade" type="checkbox">
+      </label>
+      <label class="icl-switch-row"><span><strong>本人累计消费参与等级评定</strong><small>关闭后保留现有等级与消费记录，后续消费不再触发升级；重新开启后才继续评定。</small></span><input id="icl-own-spend-level-enabled" type="checkbox"></label>
+      <label class="icl-switch-row"><span><strong>已锁定推广贡献参与等级评定</strong><small>关闭后保留现有等级与贡献记录，后续贡献不再触发升级；重新开启后才继续评定。</small></span><input id="icl-referral-contribution-level-enabled" type="checkbox"></label>
+      <label class="icl-switch-row"><span><strong>启用推广权益计算</strong><small>关闭时新订单不再产生推广权益，已有权益记录仍保留。</small></span><input id="icl-referral-enabled" type="checkbox"></label>
+      <div class="icl-form-grid icl-config-grid">
+        <label>默认推广折算比例（%）<input id="icl-referral-rate" type="number" min="0" max="100" step="0.01"></label>
+        <label>默认贡献换算比例（%）<input id="icl-contribution-rate" type="number" min="0" max="1000" step="0.01"></label>
+        <label>退款观察期（天，最低 14）<input id="icl-observation-days" type="number" min="14" max="3650" step="1"></label>
+        <label>提现冻结审核期（天，最低 7）<input id="icl-withdrawal-review-days" type="number" min="7" max="3650" step="1"></label>
+        <label>最低提现金额<input id="icl-min-withdraw" type="number" min="0" step="0.01"></label>
+        <label class="icl-config-wide">默认邀请落地页<small>只允许站内路径，例如 /regist.htm 或 /cart.htm</small><input id="icl-invite-default-path" type="text" maxlength="1000" placeholder="/regist.htm"></label>
+      </div>
+      <p class="icl-note">强制风控：充值永不计入消费；退款必须立即冲减本人消费、推广权益与官方等级；权益过观察期后仍需手工选择去向，选择现金后的提现申请还需继续冻结审核。上述规则不提供关闭开关。</p>
+      <p class="icl-note">权益由用户手工选择提现或纳入贡献；锁定为贡献后不可转回现金。</p>
+      <p class="icl-note">推广提现不再设置独立审核页。通过强制冻结期后，申请会进入 V10 提现管理，由财务统一处理。</p>
+      <button class="icl-btn icl-btn-primary" type="submit">保存设置</button>
+    </form>
+  </section>
+
+  <section class="icl-panel" data-panel="logs">
+    <div class="icl-section-head"><h2>等级变更记录</h2><button id="icl-refresh-logs" class="icl-btn" type="button">刷新</button></div>
+    <div class="icl-table-wrap">
+      <table class="icl-table">
+        <thead><tr><th>时间</th><th>用户</th><th>原等级</th><th>新等级</th><th>累计消费变化</th><th>来源</th><th>订单</th></tr></thead>
+        <tbody id="icl-logs"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <dialog id="icl-level-dialog" class="icl-dialog">
+    <form id="icl-level-form" class="icl-form">
+      <div class="icl-section-head"><h2 id="icl-dialog-title">新增等级</h2><button id="icl-close-dialog" class="icl-icon-btn" type="button" aria-label="关闭">×</button></div>
+      <input id="icl-level-id" type="hidden">
+      <label>等级名称<input id="icl-level-name" type="text" maxlength="100" required></label>
+      <div class="icl-form-grid">
+        <label>本人累计净消费门槛<input id="icl-level-amount" type="number" min="0" step="0.01" required></label>
+        <label>已锁定推广贡献门槛<input id="icl-level-referral-amount" type="number" min="0" step="0.01" required></label>
+        <label>减免比例（%）<input id="icl-level-discount" type="number" min="0" max="100" step="0.01" required></label>
+        <label>等级颜色<input id="icl-level-color" type="color" value="#2F54EB"></label>
+        <label>排序<input id="icl-level-sort" type="number" step="1" value="0"></label>
+      </div>
+      <label class="icl-switch-row"><span><strong>启用等级</strong></span><input id="icl-level-status" type="checkbox" checked></label>
+      <label class="icl-switch-row"><span><strong>启用折扣</strong></span><input id="icl-level-discount-status" type="checkbox" checked></label>
+      <label>备注<textarea id="icl-level-notes" rows="3" maxlength="1000"></textarea></label>
+      <fieldset class="icl-fieldset"><legend>该等级的推广策略覆盖</legend>
+        <label class="icl-switch-row"><span><strong>覆盖推广折算比例</strong></span><input id="icl-policy-reward-override" type="checkbox"></label>
+        <label>推广折算比例（%）<input id="icl-policy-reward" type="number" min="0" max="100" step="0.01" value="0"></label>
+        <label class="icl-switch-row"><span><strong>覆盖贡献换算比例</strong></span><input id="icl-policy-contribution-override" type="checkbox"></label>
+        <label>贡献换算比例（%）<input id="icl-policy-contribution" type="number" min="0" max="1000" step="0.01" value="100"></label>
+        <label class="icl-switch-row"><span><strong>覆盖最低提现</strong></span><input id="icl-policy-min-override" type="checkbox"></label>
+        <label>最低提现金额<input id="icl-policy-min" type="number" min="0" step="0.01" value="0"></label>
+      </fieldset>
+      <p id="icl-pay-preview" class="icl-note">用户实付比例：100%</p>
+      <div id="icl-level-feedback" class="icl-form-feedback" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+      <div class="icl-actions"><button id="icl-delete-level" class="icl-btn icl-btn-danger" type="button" hidden>删除</button><button class="icl-btn icl-btn-primary" type="submit">保存等级</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="icl-client-dialog" class="icl-dialog">
+    <form id="icl-client-form" class="icl-form">
+      <div class="icl-section-head"><h2>调整用户等级</h2><button id="icl-close-client-dialog" class="icl-icon-btn" type="button" aria-label="关闭">×</button></div>
+      <input id="icl-client-id" type="hidden">
+      <p id="icl-client-label" class="icl-note"></p>
+      <label>等级<select id="icl-client-level"></select></label>
+      <label class="icl-switch-row"><span><strong>固定为管理员指定等级</strong><small>开启后两项记录仍继续累计，但不会自动改变当前等级；关闭或到期后按当前已开启的评定通道重算。</small></span><input id="icl-client-lock" type="checkbox" checked></label>
+      <label>固定到期时间（可留空为长期）<input id="icl-client-expire" type="datetime-local"></label>
+      <label>调级原因<textarea id="icl-client-reason" rows="3" maxlength="500" placeholder="必填，写入审计记录"></textarea></label>
+      <button class="icl-btn icl-btn-primary" type="submit">保存</button>
+    </form>
+  </dialog>
+</div>
+
+<script src="/plugins/addon/idcsmart_client_level/public/client-level-admin.js?v=1.6.3"></script>

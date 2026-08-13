@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'display_name' => '用户等级与累计消费折扣',
+    'nav_plugin_addon_idcsmart_client_level' => '用户等级',
+    'auth_idcsmart_client_level' => '用户等级与累计消费折扣',
+    'auth_idcsmart_client_level_view' => '查看等级、用户与变更记录',
+    'auth_idcsmart_client_level_manage' => '管理等级、折扣和自动升级',
+    'auth_idcsmart_client_level_finance' => '审核推广权益提现',
+    'clientarea_auth_idcsmart_client_level' => '用户等级',
+    'clientarea_auth_idcsmart_client_level_view' => '查看用户等级',
+    'clientarea_auth_idcsmart_client_level_detail' => '查看等级详情',
+    'clientarea_auth_idcsmart_client_level_product_amount' => '查询商品等级优惠',
+    'clientarea_auth_idcsmart_client_level_referrals' => '查看推广客户',
+    'clientarea_auth_idcsmart_client_level_accruals' => '查看推广权益计提',
+    'clientarea_auth_idcsmart_client_level_benefit_flows' => '查看推广权益流水',
+    'clientarea_auth_idcsmart_client_level_allocate' => '分配推广权益',
+    'clientarea_auth_idcsmart_client_level_withdraw_methods' => '查看收款方式',
+    'clientarea_auth_idcsmart_client_level_save_withdraw_method' => '保存收款方式',
+    'clientarea_auth_idcsmart_client_level_delete_withdraw_method' => '删除收款方式',
+    'clientarea_auth_idcsmart_client_level_withdrawals' => '查看提现记录',
+    'clientarea_auth_idcsmart_client_level_create_withdrawal' => '申请提现',
+    'clientarea_auth_idcsmart_client_level_cancel_withdrawal' => '取消提现',
+    'nav_plugin_addon_idcsmart_client_level_clientarea' => '会员等级与推广权益',
+];

@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'display_name' => 'Client Levels and Spending Discounts',
+    'nav_plugin_addon_idcsmart_client_level' => 'Client Levels',
+    'auth_idcsmart_client_level' => 'Client levels and spending discounts',
+    'auth_idcsmart_client_level_view' => 'View levels, clients, and change history',
+    'auth_idcsmart_client_level_manage' => 'Manage levels, discounts, and automatic upgrades',
+    'auth_idcsmart_client_level_finance' => 'Review referral withdrawals',
+    'nav_plugin_addon_idcsmart_client_level_clientarea' => 'Membership and referral benefits',
+    'clientarea_auth_idcsmart_client_level' => 'Client level',
+    'clientarea_auth_idcsmart_client_level_view' => 'View client level',
+    'clientarea_auth_idcsmart_client_level_detail' => 'View level detail',
+    'clientarea_auth_idcsmart_client_level_product_amount' => 'Query product level discount',
+    'clientarea_auth_idcsmart_client_level_referrals' => 'View referrals',
+    'clientarea_auth_idcsmart_client_level_accruals' => 'View benefit accruals',
+    'clientarea_auth_idcsmart_client_level_benefit_flows' => 'View benefit ledger',
+    'clientarea_auth_idcsmart_client_level_allocate' => 'Allocate referral benefits',
+    'clientarea_auth_idcsmart_client_level_withdraw_methods' => 'View payout methods',
+    'clientarea_auth_idcsmart_client_level_save_withdraw_method' => 'Save payout method',
+    'clientarea_auth_idcsmart_client_level_delete_withdraw_method' => 'Delete payout method',
+    'clientarea_auth_idcsmart_client_level_withdrawals' => 'View withdrawals',
+    'clientarea_auth_idcsmart_client_level_create_withdrawal' => 'Create withdrawal',
+    'clientarea_auth_idcsmart_client_level_cancel_withdrawal' => 'Cancel withdrawal',
+];

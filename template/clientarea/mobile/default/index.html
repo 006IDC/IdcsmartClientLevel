@@ -1,0 +1,191 @@
+<title>会员等级与推广权益</title>
+<link rel="stylesheet" href="/plugins/addon/idcsmart_client_level/public/client-level-client.css?v=1.6.3">
+</head>
+
+<body>
+<div id="mainLoading">
+  <div class="ddr ddr1"></div>
+  <div class="ddr ddr2"></div>
+  <div class="ddr ddr3"></div>
+  <div class="ddr ddr4"></div>
+  <div class="ddr ddr5"></div>
+</div>
+
+<div id="icl-client-page-shell" class="template" style="display:none">
+  <el-container>
+    <aside-menu></aside-menu>
+    <el-container>
+      <top-menu></top-menu>
+      <el-main>
+<main id="icl-client" class="icl-client-page" v-pre>
+  <div id="icl-client-message" class="icl-client-message" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></div>
+  <section class="icl-member-hero">
+    <div class="icl-member-copy">
+      <span class="icl-eyebrow">MEMBERSHIP · REFERRAL BENEFITS</span>
+      <h1 id="icl-current-level">会员等级</h1>
+      <p>本人消费与推广贡献分别达标、取较高等级，推广权益可提现，也可用于等级升级。</p>
+      <div class="icl-level-progress"><span id="icl-progress-bar"></span></div>
+      <div class="icl-progress-label"><span id="icl-progress-current">0.00</span><span id="icl-progress-next">正在读取等级进度</span></div>
+    </div>
+    <div class="icl-discount-orb"><small>当前减免</small><strong id="icl-current-discount">0%</strong><span id="icl-lock-state">自动等级</span></div>
+  </section>
+
+  <section class="icl-metric-grid" aria-label="双轴等级数据">
+    <article><span>本人真实消费</span><strong id="icl-own-spend">0.00</strong><small>来自已支付商品订单</small></article>
+    <article><span>推广客户净消费</span><strong id="icl-referral-spend">0.00</strong><small>用于计算推广权益</small></article>
+    <article><span>已锁定等级贡献</span><strong id="icl-contribution">0.00</strong><small>不可再用于提现</small></article>
+    <article class="is-primary"><span>等级评定方式</span><strong id="icl-effective">读取中</strong><small>两项指标分别达标，不相加</small></article>
+  </section>
+
+  <nav class="icl-client-tabs" aria-label="会员等级与推广权益">
+    <button type="button" class="is-active" data-client-tab="overview">等级总览</button>
+    <button type="button" data-client-tab="referrals">我的推广</button>
+    <button type="button" data-client-tab="benefits">权益分配</button>
+    <button type="button" data-client-tab="withdrawals">提现管理</button>
+  </nav>
+
+  <section class="icl-client-panel is-active" data-client-panel="overview">
+    <div class="icl-two-col">
+      <article class="icl-surface">
+        <div class="icl-section-title"><div><span class="icl-icon">↗</span><h2>邀请好友</h2></div><span id="icl-referral-count" class="icl-pill">0 位客户</span></div>
+        <p class="icl-muted">好友通过链接注册并产生符合条件的消费后，推广权益会在观察期结束后进入待分配余额。</p>
+        <label class="icl-copy-field"><input id="icl-invite-link" readonly aria-label="推广邀请链接"><button id="icl-copy-invite" type="button" aria-live="polite">复制链接</button></label>
+        <div class="icl-code-line">邀请码 <strong id="icl-invite-code">-</strong></div>
+        <p class="icl-link-note">复制专属链接邀请好友；好友完成注册后会自动成为你的推广客户。</p>
+      </article>
+      <article class="icl-surface">
+        <div class="icl-section-title"><div><span class="icl-icon">◎</span><h2>下一等级</h2></div></div>
+        <div class="icl-next-level"><strong id="icl-next-level-name">已达最高等级</strong><span id="icl-next-level-gap">无需继续累计</span></div>
+        <div id="icl-level-formula" class="icl-formula">本人消费与推广贡献分别达标，取较高等级</div>
+      </article>
+    </div>
+    <article class="icl-surface">
+      <div class="icl-section-title"><div><span class="icl-icon">◆</span><h2>会员等级权益</h2></div></div>
+      <div id="icl-level-list" class="icl-client-levels"></div>
+    </article>
+  </section>
+
+  <section class="icl-client-panel" data-client-panel="referrals">
+    <section class="icl-referral-dashboard" aria-label="推广经营概览">
+      <article class="is-primary"><span>本月推广权益</span><strong id="icl-referral-month-reward">0.00</strong><small>已扣除退款</small></article>
+      <article><span>今日推广权益</span><strong id="icl-referral-today-reward">0.00</strong><small>已扣除退款</small></article>
+      <article><span>我的客户</span><strong id="icl-referral-dashboard-clients">0</strong><small>当前直属推广客户</small></article>
+      <article><span>累计推广权益</span><strong id="icl-referral-total-reward">0.00</strong><small>包含观察期与已分配权益</small></article>
+    </section>
+    <div class="icl-referral-charts">
+      <article class="icl-surface">
+        <div class="icl-section-title"><div><span class="icl-icon">⌁</span><h2>近 7 日客户净消费</h2></div><small>已扣退款</small></div>
+        <div id="icl-referral-trend" class="icl-mini-trend" aria-label="近 7 日客户净消费图表"></div>
+      </article>
+      <article class="icl-surface icl-mix-card">
+        <div class="icl-section-title"><div><span class="icl-icon">◉</span><h2>新购 / 续费结构</h2></div></div>
+        <div class="icl-order-mix"><div id="icl-order-mix-ring" class="icl-order-mix-ring"><strong id="icl-order-mix-percent">0%</strong><small>新购占比</small></div><dl><div><dt><i class="is-new"></i>新购订单</dt><dd id="icl-order-new-count">0</dd></div><div><dt><i class="is-renew"></i>续费订单</dt><dd id="icl-order-renew-count">0</dd></div><div><dt><i class="is-other"></i>其他订单</dt><dd id="icl-order-other-count">0</dd></div></dl></div>
+      </article>
+    </div>
+    <section class="icl-balance-grid">
+      <article><span>直属客户</span><strong id="icl-referral-total">0</strong></article>
+      <article><span>付费客户</span><strong id="icl-referral-paying">0</strong></article>
+      <article><span>付费转化率</span><strong id="icl-referral-conversion">0%</strong></article>
+      <article><span>有效订单</span><strong id="icl-referral-orders">0</strong></article>
+      <article><span>客户净消费</span><strong id="icl-referral-net">0.00</strong></article>
+      <article><span>客户退款</span><strong id="icl-referral-refunds">0.00</strong></article>
+    </section>
+    <article class="icl-surface">
+      <div class="icl-section-title"><div><span class="icl-icon">♧</span><h2>直属推广客户</h2></div><button id="icl-refresh-referrals" class="icl-secondary-btn" type="button">刷新</button></div>
+      <div class="icl-responsive-table"><table><thead><tr><th>客户</th><th>绑定时间</th><th>贡献开始</th><th>有效订单</th><th>支付金额</th><th>退款金额</th><th>客户净消费</th><th>最近支付</th></tr></thead><tbody id="icl-referral-rows"></tbody></table></div>
+    </article>
+  </section>
+
+  <section class="icl-client-panel" data-client-panel="benefits">
+    <section class="icl-balance-grid">
+      <article><span>观察期权益</span><strong id="icl-benefit-pending">0.00</strong></article>
+      <article><span>待分配权益</span><strong id="icl-benefit-unallocated">0.00</strong></article>
+      <article><span>可提现余额</span><strong id="icl-benefit-withdrawable">0.00</strong></article>
+      <article><span>退款待抵扣</span><strong id="icl-benefit-debt">0.00</strong></article>
+    </section>
+    <div class="icl-two-col">
+      <form id="icl-allocation-form" class="icl-surface icl-client-form" novalidate>
+        <div class="icl-section-title"><div><span class="icl-icon">⇄</span><h2>分配推广权益</h2></div></div>
+        <label>分配金额<input id="icl-allocation-amount" type="number" min="0.01" step="0.01" inputmode="decimal" disabled required></label>
+        <label>选择去向<select id="icl-allocation-target"><option value="contribution">纳入等级贡献</option><option value="withdrawable">转入可提现余额</option></select></label>
+        <p id="icl-allocation-preview" class="icl-callout" role="status" aria-live="polite">正在核对待分配权益…</p>
+        <p id="icl-allocation-feedback" class="icl-form-feedback" role="status" aria-live="polite" hidden></p>
+        <button id="icl-allocation-submit" class="icl-primary-btn" type="submit" disabled>确认分配</button>
+      </form>
+      <article class="icl-surface">
+        <div class="icl-section-title"><div><span class="icl-icon">⌁</span><h2>返利规则</h2></div></div>
+        <dl class="icl-policy-list"><div><dt>推广折算比例</dt><dd id="icl-policy-reward">0%</dd></div><div><dt>贡献换算比例</dt><dd id="icl-policy-contribution">100%</dd></div><div><dt>退款观察期</dt><dd id="icl-policy-days">14 天</dd></div><div><dt>提现冻结审核期</dt><dd id="icl-policy-review">7 天</dd></div><div><dt>最低提现</dt><dd id="icl-policy-min">0.00</dd></div></dl>
+      </article>
+    </div>
+    <article class="icl-surface">
+      <div class="icl-section-title"><div><span class="icl-icon">≋</span><h2>推广返利明细</h2></div></div>
+      <div class="icl-responsive-table"><table><thead><tr><th>订单</th><th>客户</th><th>符合条件的消费</th><th>返利比例</th><th>推广权益</th><th>状态</th></tr></thead><tbody id="icl-accrual-rows"></tbody></table></div>
+    </article>
+  </section>
+
+  <section class="icl-client-panel" data-client-panel="withdrawals">
+    <div class="icl-two-col">
+      <form id="icl-method-form" class="icl-surface icl-client-form">
+        <div class="icl-section-title"><div><span class="icl-icon">▣</span><h2>新增收款方式</h2></div></div>
+        <label>类型<select id="icl-method-type"><option value="alipay">支付宝</option><option value="wechat">微信</option><option value="bank">银行卡</option><option value="other">其他</option></select></label>
+        <label>收款账号<input id="icl-method-account" maxlength="100" autocomplete="off" required></label>
+        <label>收款人<input id="icl-method-name" maxlength="100" autocomplete="off" required></label>
+        <label class="icl-check"><input id="icl-method-default" type="checkbox" checked>设为默认收款方式</label>
+        <button class="icl-secondary-btn" type="submit">保存收款方式</button>
+      </form>
+      <form id="icl-withdraw-form" class="icl-surface icl-client-form" novalidate>
+        <div class="icl-section-title"><div><span class="icl-icon">¥</span><h2>申请提现</h2></div></div>
+        <label>提现金额<input id="icl-withdraw-amount" type="number" min="0.01" step="0.01" inputmode="decimal" disabled required></label>
+        <label>收款方式<select id="icl-withdraw-method" required></select></label>
+        <p id="icl-withdraw-rule" class="icl-callout is-checking" role="status" aria-live="polite">正在核对可提现余额和申请条件…</p>
+        <p id="icl-withdraw-feedback" class="icl-form-feedback" role="status" aria-live="polite" hidden></p>
+        <button id="icl-withdraw-submit" class="icl-primary-btn" type="submit" disabled>提交提现申请</button>
+      </form>
+    </div>
+    <article class="icl-surface">
+      <div class="icl-section-title"><div><span class="icl-icon">◷</span><h2>提现记录</h2></div></div>
+      <div class="icl-responsive-table"><table><thead><tr><th>申请编号</th><th>金额</th><th>收款方式</th><th>状态</th><th>申请时间</th><th>操作</th></tr></thead><tbody id="icl-withdraw-rows"></tbody></table></div>
+    </article>
+  </section>
+</main>
+      </el-main>
+    </el-container>
+  </el-container>
+</div>
+<script src="/plugins/addon/idcsmart_client_level/public/client-level-client.js?v=1.6.3"></script>
+<script>
+(function () {
+  function startClientLevelFeature() {
+    if (window.__iclClientShellMounted) return;
+    window.__iclClientShellMounted = true;
+    window.dispatchEvent(new Event('icl:client-shell-mounted'));
+  }
+  function bootClientLevelPage() {
+    document.title = '会员等级与推广权益';
+    var shell = document.getElementById('icl-client-page-shell');
+    var loading = document.getElementById('mainLoading');
+    function showShell() {
+      if (loading) loading.style.display = 'none';
+      if (shell) shell.style.display = 'block';
+    }
+    if (shell && window.Vue) {
+      var components = {};
+      if (window.lang) window.Vue.prototype.lang = Object.assign({}, window.lang, window.plugin_lang || {});
+      if (typeof asideMenu !== 'undefined') components.asideMenu = asideMenu;
+      if (typeof topMenu !== 'undefined') components.topMenu = topMenu;
+      new window.Vue({ el: '#icl-client-page-shell', components: components, mounted: function () {
+        showShell();
+        this.$nextTick(startClientLevelFeature);
+      } });
+    } else {
+      showShell();
+      startClientLevelFeature();
+    }
+  }
+  var previousOnload = window.onload;
+  window.onload = function (event) {
+    if (typeof previousOnload === 'function') previousOnload.call(window, event);
+    bootClientLevelPage();
+  };
+})();
+</script>

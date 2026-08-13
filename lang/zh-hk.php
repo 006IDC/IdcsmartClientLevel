@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'display_name' => '用戶等級與累計消費折扣',
+    'nav_plugin_addon_idcsmart_client_level' => '用戶等級',
+    'auth_idcsmart_client_level' => '用戶等級與累計消費折扣',
+    'auth_idcsmart_client_level_view' => '查看等級、用戶與變更記錄',
+    'auth_idcsmart_client_level_manage' => '管理等級、折扣和自動升級',
+    'auth_idcsmart_client_level_finance' => '審核推廣權益提現',
+    'nav_plugin_addon_idcsmart_client_level_clientarea' => '會員等級與推廣權益',
+    'clientarea_auth_idcsmart_client_level' => '用戶等級',
+    'clientarea_auth_idcsmart_client_level_view' => '查看用戶等級',
+    'clientarea_auth_idcsmart_client_level_detail' => '查看等級詳情',
+    'clientarea_auth_idcsmart_client_level_product_amount' => '查詢商品等級優惠',
+    'clientarea_auth_idcsmart_client_level_referrals' => '查看推廣客戶',
+    'clientarea_auth_idcsmart_client_level_accruals' => '查看推廣權益計提',
+    'clientarea_auth_idcsmart_client_level_benefit_flows' => '查看推廣權益流水',
+    'clientarea_auth_idcsmart_client_level_allocate' => '分配推廣權益',
+    'clientarea_auth_idcsmart_client_level_withdraw_methods' => '查看收款方式',
+    'clientarea_auth_idcsmart_client_level_save_withdraw_method' => '保存收款方式',
+    'clientarea_auth_idcsmart_client_level_delete_withdraw_method' => '刪除收款方式',
+    'clientarea_auth_idcsmart_client_level_withdrawals' => '查看提現記錄',
+    'clientarea_auth_idcsmart_client_level_create_withdrawal' => '申請提現',
+    'clientarea_auth_idcsmart_client_level_cancel_withdrawal' => '取消提現',
+];
