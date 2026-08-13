@@ -1,5 +1,11 @@
 # IdcsmartClientLevel
 
+[![CI](https://github.com/006IDC/IdcsmartClientLevel/actions/workflows/ci.yml/badge.svg)](https://github.com/006IDC/IdcsmartClientLevel/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/006IDC/IdcsmartClientLevel)](https://github.com/006IDC/IdcsmartClientLevel/releases)
+[![License](https://img.shields.io/github/license/006IDC/IdcsmartClientLevel)](LICENSE)
+
+由 [零零陆云计算（006IDC）](https://github.com/006IDC) 独立维护。
+
 `IdcsmartClientLevel` 是 ZJMF-CBAP V10 Addon 插件，插件标识为 `idcsmart_client_level`。
 
 当前版本 `1.6.3`。用户安装或覆盖升级后，会在用户中心菜单看到“会员等级与推广权益”，可进入等级总览、我的推广、权益分配与提现管理。

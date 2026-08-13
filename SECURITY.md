@@ -10,8 +10,7 @@ credentials or customer data.
 
 Do not publish an issue containing an exploitable vulnerability, credential,
 private key, customer record or production URL. Use GitHub's private security
-advisory feature for the repository, or contact the maintainer through the
-private channel listed in the repository profile.
+advisory reporting feature on the repository Security page.
 
 Please include:
 

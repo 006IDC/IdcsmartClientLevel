@@ -72,7 +72,10 @@ foreach ($files as $relative => $path) {
     }
     if (preg_match_all('#https?://[^\s)\]}>"\']+#i', $contents, $urlMatches)) {
         foreach ($urlMatches[0] as $url) {
-            if (stripos($url, 'https://example.com') !== 0 && stripos($url, 'http://example.com') !== 0) {
+            preg_match('#^https?://([A-Za-z0-9.-]+)#i', $url, $hostMatch);
+            $host = strtolower((string) ($hostMatch[1] ?? ''));
+            if (!in_array($host, ['example.com', 'github.com', 'img.shields.io'], true)
+                && substr($host, -12) !== '.example.com') {
                 $failures[] = 'non-example URL in ' . $relative . ': ' . $url;
             }
         }
