@@ -1,4 +1,4 @@
-# V10 用户等级与推广权益插件
+# V10 用户等级与推广权益插件（开源版）
 
 ## 产品介绍
 
@@ -8,7 +8,7 @@ V10 用户等级与推广权益 Addon，使用独立消费和推广贡献门槛�
 
 | 项目 | 公开说明 |
 | --- | --- |
-| 公开发行版本 | [v1.6.3](https://github.com/006IDC/IdcsmartClientLevel/releases/tag/v1.6.3) |
+| 公开发行版本 | [v1.6.3](https://github.com/006IDC/v10-client-level-public/releases/tag/v1.6.3) |
 | 适用环境 | 目标基线 V10 10.4.6 / PHP 7.3.33 / MySQL 5.7；需 BCMath |
 | 使用边界 | 10.7.x 实例须另做运行时集成测试；充值不计消费，退款强制回算。普通开源安装包不等同部署方签名升级包。 |
 
@@ -23,7 +23,7 @@ V10 用户等级与推广权益 Addon，使用独立消费和推广贡献门槛�
 
 ## 使用与升级
 
-从 [Releases](https://github.com/006IDC/IdcsmartClientLevel/releases) 下载 `idcsmart_client_level_v1.6.3_zjmf_v10_import.zip` 并核对 `SHA256SUMS.txt`。保持 `IdcsmartClientLevel / idcsmart_client_level` 身份，通过 V10 原生安装和启用；官方提现插件及收款方式应先配置。已有用户需按说明重算，详细步骤见[部署与升级](docs/DEPLOYMENT.md)及[技术说明](docs/repository-guide.md)。
+从 [Releases](https://github.com/006IDC/v10-client-level-public/releases) 下载 `idcsmart_client_level_v1.6.3_zjmf_v10_import.zip` 并核对 `SHA256SUMS.txt`。保持 `IdcsmartClientLevel / idcsmart_client_level` 身份，通过 V10 原生安装和启用；官方提现插件及收款方式应先配置。已有用户需按说明重算，详细步骤见[部署与升级](docs/DEPLOYMENT.md)及[技术说明](docs/repository-guide.md)。
 
 ## 版本演进
 
